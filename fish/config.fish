@@ -18,11 +18,12 @@ if test -f $private_fish_path
     source $private_fish_path
 end
 
-if test -d $MY_CODE/devops/docs/scripts/fish
-    source $MY_CODE/devops/docs/scripts/fish/go.fish
-    source $MY_CODE/devops/docs/scripts/fish/k8s.fish
-    source $MY_CODE/devops/docs/scripts/fish/sdlc.fish
-    set -x PATH $MY_CODE/devops/docs/scripts/bin $PATH
+if test -d $MY_CODE/my-setup/fish
+    source $MY_CODE/my-setup/fish/go.fish
+    source $MY_CODE/my-setup/fish/k8s.fish
+    source $MY_CODE/my-setup/fish/sdlc.fish
+    source $MY_CODE/my-setup/fish/system.fish
+    set -x PATH $MY_CODE/my-setup/bin $PATH
 end
 
 set -x PATH $MY_CODE/devops/bin $PATH
