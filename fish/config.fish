@@ -27,6 +27,7 @@ if test -d $MY_CODE/my-setup/fish
 end
 
 set -x PATH $MY_CODE/devops/bin $PATH
+set -x PATH $HOME/bin $PATH
 
 set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 set -x PATH ~/Library/Application\ Support/JetBrains/Toolbox/scripts $PATH

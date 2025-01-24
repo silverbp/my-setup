@@ -1,10 +1,10 @@
 # Check if the directory exists, if not, create it
-set -x GOPATH $MYCODE/go
+set -x GOPATH $MY_CODE/go
 
 if not test -d $GOPATH
     mkdir -p $GOPATH
     echo "Created directory: $GOPATH"
 end
 
-set -x PATH $MYCODE/go/bin $PATH
+set -x PATH $MY_CODE/go/bin $PATH
 set -x GOPRIVATE gitlab.unanet.io
