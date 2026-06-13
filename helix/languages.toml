@@ -1,0 +1,59 @@
+###############################################################################
+# Go
+###############################################################################
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+language-servers = ["gopls", "golangci-lint-lsp"]
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+compositeLiteralTypes = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--output.text.path=stdout", "--issues-exit-code=1"]
+
+###############################################################################
+# Terraform / HCL
+###############################################################################
+[[language]]
+name = "hcl"
+language-servers = ["terraform-ls", "efm"]
+auto-format = true
+file-types = ["tf", "tfvars"]
+roots = [".terraform", "*.tf"]
+
+[[language]]
+name = "tfvars"
+language-servers = ["terraform-ls", "efm"]
+auto-format = true
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve"]
+
+[language-server.efm]
+command = "efm-langserver"
+
+###############################################################################
+# TOML / YAML (nice to have)
+###############################################################################
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
+name = "yaml"
+auto-format = true
