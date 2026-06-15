@@ -6,6 +6,36 @@ name = "go"
 auto-format = true
 formatter = { command = "goimports" }
 language-servers = ["gopls", "golangci-lint-lsp"]
+[language.debugger]
+name = "go"
+transport = "tcp"
+command = "dlv"
+args = ["dap"]
+port-arg = "--listen=127.0.0.1:{}"
+
+[[language.debugger.templates]]
+name = "source"
+request = "launch"
+completion = [{ name = "entrypoint", completion = "filename", default = "." }]
+args = { mode = "debug", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [{ name = "binary", completion = "filename" }]
+args = { mode = "exec", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "test"
+request = "launch"
+completion = [{ name = "tests", completion = "filename", default = "." }]
+args = { mode = "test", program = "{0}" }
+
+[[language.debugger.templates]]
+name = "attach"
+request = "attach"
+completion = [{ name = "process", completion = "pid" }]
+args = { mode = "local", processId = "{0}" }
 
 [language-server.gopls]
 command = "gopls"

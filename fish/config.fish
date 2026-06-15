@@ -8,8 +8,8 @@ set private_fish_path "$HOME/.config/fish/private.fish"
 # Check if private.fish exists, and create it if it doesn't
 if not test -f $private_fish_path
     touch $private_fish_path
-    echo "# Private Fish configuration" > $private_fish_path
-    echo "set -x MY_CODE $HOME/code" >> $private_fish_path
+    echo "# Private Fish configuration" >$private_fish_path
+    echo "set -x MY_CODE $HOME/code" >>$private_fish_path
     echo "Created $private_fish_path for private variables and custom configuration."
 end
 
@@ -28,8 +28,16 @@ end
 
 set -x PATH $MY_CODE/devops/bin $PATH
 set -x PATH $HOME/bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
 
 set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 set -x PATH ~/Library/Application\ Support/JetBrains/Toolbox/scripts $PATH
 
 set -x LSCOLORS
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/centzi/.lmstudio/bin
+
+
+set -gx PATH "/Users/centzi/.local/bin" $PATH
+set -gx PATH "~/.claude/bin" $PATH
